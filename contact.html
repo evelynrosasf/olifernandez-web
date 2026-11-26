@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact · Olivier Fernández</title>
-<meta name="description" content="Tell Olivier Fernández about your chocolate project.">
+<meta name="description" content="Say hello to Olivier Fernández.">
 <meta property="og:title" content="Contact · Olivier Fernández">
-<meta property="og:description" content="Tell Olivier Fernández about your chocolate project.">
+<meta property="og:description" content="Say hello to Olivier Fernández.">
 <meta property="og:image" content="assets/img/hands-cacao-beans.jpg">
 <meta name="theme-color" content="#0C0F0D">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -26,52 +26,78 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 body{margin:0;background:#0C0F0D}
 a{color:#E9DCC6}a:hover{opacity:.8}
 img{max-width:100%}
+@keyframes sl{from{transform:translateX(var(--fx,0));opacity:0}to{transform:none;opacity:1}}
+@keyframes fd{from{opacity:0}to{opacity:1}}
+@keyframes rv{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:none}}
+@keyframes up{from{transform:scale(1.06);opacity:0;filter:blur(10px)}to{transform:none;opacity:1;filter:none}}
+.up{animation:up 1.4s cubic-bezier(.2,.7,0,1) both}
+.sl{animation:sl 1.3s cubic-bezier(.2,.7,0,1) both}.fd{animation:fd 1s ease .9s both}
+.rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% entry 80%}
+input::placeholder,textarea::placeholder{color:#7E8A80}
+@keyframes flo{from{transform:translate(-50%,-50%) rotate(-10deg) translateY(-6px)}to{transform:translate(-50%,-50%) rotate(-6deg) translateY(6px)}}
+.flo{animation:flo 3.2s ease-in-out infinite alternate}
+.ring{transition:transform .3s ease}.ring:hover{transform:scale(1.06)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 </head>
 <body>
 <div style="background: #0C0F0D; color: #E9DCC6; font-family: 'Inter', sans-serif; min-width: 320px">
-<header style="display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; justify-content: space-between; padding: 20px clamp(20px, 5vw, 72px); background: #0C0F0D; color: #E9DCC6; border-bottom: 1px solid #222A24">
-  <a href="index.html" aria-label="Olivier Fernández, home" style="display: flex; align-items: center; gap: 14px; color: #E9DCC6; text-decoration: none"><svg viewBox="0 0 355 200" style="display: block; width: 52px; height: 29px; fill: #E9DCC6;" aria-hidden="true"><circle cx="100" cy="100" r="100"></circle><rect x="200" y="0" width="75" height="200"></rect><circle cx="315" cy="40" r="40"></circle><rect x="277.5" y="80" width="75" height="120"></rect></svg><span style="font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 125; font-weight: 800; font-size: 13px; letter-spacing: 0.14em">OLIVIER FERNÁNDEZ</span></a>
-  <nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 4px 28px; align-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase">
-<a href="consulting.html" style="color: #E9DCC6; text-decoration: none; padding: 12px 0">Consulting</a>
-<a href="projects.html" style="color: #E9DCC6; text-decoration: none; padding: 12px 0">Projects</a>
-<a href="training.html" style="color: #E9DCC6; text-decoration: none; padding: 12px 0">Training</a>
-<a href="about.html" style="color: #E9DCC6; text-decoration: none; padding: 12px 0">About Olivier</a>
-<a href="contact.html" style="color: #0C0F0D; background: #E9DCC6; text-decoration: none; padding: 15px 18px">Tell me about your project</a>
-  </nav>
+<header style="position: fixed; top: 0; left: 0; right: 0; z-index: 20; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; padding: 18px clamp(20px, 5vw, 72px); background: #0C0F0D; color: #E9DCC6">
+  <a href="index.html" aria-label="Olivier Fernández, home" style="justify-self: start; color: #E9DCC6"><svg viewBox="0 0 355 200" style="display: block; width: 56px; height: 32px; fill: #E9DCC6;" aria-hidden="true"><circle cx="100" cy="100" r="100"></circle><rect x="200" y="0" width="75" height="200"></rect><circle cx="315" cy="40" r="40"></circle><rect x="277.5" y="80" width="75" height="120"></rect></svg></a>
+  <div style="justify-self: center; display: flex; flex-direction: column; align-items: center">
+    <button type="button" id="menu-btn" aria-label="Menu" aria-controls="menu-dd" aria-expanded="false" style="background: none; border: 0; padding: 12px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 6px">
+      <span class="m-open" hidden style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.6; letter-spacing: 0.14em; text-transform: uppercase; color: #E9DCC6">Close ×</span>
+      <span class="m-closed" style="display: flex; flex-direction: column; gap: 6px"><span style="display: block; width: 30px; height: 2px; background: #E9DCC6"></span><span style="display: block; width: 30px; height: 2px; background: #E9DCC6"></span></span>
+    </button>
+    <nav id="menu-dd" hidden aria-label="Menu" style="display: flex; flex-direction: column; align-items: center; margin-top: 4px">
+<a href="index.html" style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.6; letter-spacing: 0.14em; text-transform: uppercase; color: #A9A49A; text-decoration: none; padding: 9px 0; display: block">Home</a>
+<a href="work.html" style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.6; letter-spacing: 0.14em; text-transform: uppercase; color: #A9A49A; text-decoration: none; padding: 9px 0; display: block">Work</a>
+<a href="about.html" style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.6; letter-spacing: 0.14em; text-transform: uppercase; color: #A9A49A; text-decoration: none; padding: 9px 0; display: block">About</a>
+<a href="contact.html" aria-current="page" style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.6; letter-spacing: 0.14em; text-transform: uppercase; color: #E9DCC6; text-decoration: none; padding: 9px 0; display: flex; align-items: center; gap: 8px"><span style="width: 6px; height: 6px; border-radius: 3px; background: #E9DCC6"></span>Contact</a>
+</nav>
+  </div>
+  <a class="cta-top" href="contact.html" style="justify-self: end; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #E9DCC6; text-decoration: underline; text-underline-offset: 6px; padding: 12px 0">Say hello</a>
 </header>
-<section style="display: flex; flex-wrap: wrap; background: #0C0F0D">
-  <div style="flex: 1 1 380px; padding: 96px clamp(20px, 5vw, 72px); display: flex; flex-direction: column; gap: 28px; background: #1E2B22">
-    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #A9A49A">Contact</span>
-    <h1 style="font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 125; font-weight: 800; text-transform: uppercase; line-height: 0.92; letter-spacing: -0.01em; margin: 0; font-size: clamp(48px, 6vw, 96px)">Tell me about<br>your project.</h1>
-    <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #C8C3BA; max-width: 420px">A few lines is enough. I'll reply personally.</p>
-    <span data-placeholder="email" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #E9DCC6">[PLACEHOLDER: professional email]</span>
-    <div style="position: relative; flex-grow: 1; min-height: 280px; margin-top: 12px"><img src="assets/img/olivier-overhead.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover"></div>
+<section style="position: relative; background: #0C0F0D; padding: 140px clamp(20px, 5vw, 72px) 88px; display: flex; flex-direction: column; align-items: center; gap: 36px; overflow: hidden">
+  <p class="fd" style="position: absolute; top: 120px; left: clamp(20px, 5vw, 72px); margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.6; letter-spacing: 0.14em; text-transform: uppercase; color: #A9A49A">Contact</p>
+  <p class="fd" style="position: absolute; top: 120px; right: clamp(20px, 5vw, 72px); margin: 0; text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.6; letter-spacing: 0.14em; text-transform: uppercase; color: #A9A49A">Based in Barcelona<br>Working worldwide</p>
+  <div style="position: relative; margin-top: 40px">
+    <h1 class="sl" style="--fx: -6vw; font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 125; font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; margin: 0; font-size: 40px; line-height: 0.9; text-align: center; white-space: nowrap; color: #E9DCC6">Say hello</h1>
+    
   </div>
-  <form action="#" method="post" data-placeholder="form-endpoint" style="flex: 1.4 1 520px; padding: 96px clamp(20px, 5vw, 72px); display: flex; flex-direction: column; gap: 32px">
-    <div style="display: flex; flex-wrap: wrap; gap: 32px"><label style="display: flex; flex-direction: column; gap: 8px; flex: 1 1 240px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-size: 11px; color: #A9A49A">Name</span><input type="text" name="nombre" style="background: transparent; border: 0; border-bottom: 1px solid #5A6A5E; color: #E9DCC6; font-family: 'Inter', sans-serif; font-size: 18px; padding: 12px 0; min-height: 44px"></label><label style="display: flex; flex-direction: column; gap: 8px; flex: 1 1 240px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-size: 11px; color: #A9A49A">Company</span><input type="text" name="empresa" style="background: transparent; border: 0; border-bottom: 1px solid #5A6A5E; color: #E9DCC6; font-family: 'Inter', sans-serif; font-size: 18px; padding: 12px 0; min-height: 44px"></label></div>
-    <div style="display: flex; flex-wrap: wrap; gap: 32px"><label style="display: flex; flex-direction: column; gap: 8px; flex: 1 1 240px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-size: 11px; color: #A9A49A">Country</span><input type="text" name="pais" style="background: transparent; border: 0; border-bottom: 1px solid #5A6A5E; color: #E9DCC6; font-family: 'Inter', sans-serif; font-size: 18px; padding: 12px 0; min-height: 44px"></label><label style="display: flex; flex-direction: column; gap: 8px; flex: 1 1 240px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-size: 11px; color: #A9A49A">Email</span><input type="email" name="correo" style="background: transparent; border: 0; border-bottom: 1px solid #5A6A5E; color: #E9DCC6; font-family: 'Inter', sans-serif; font-size: 18px; padding: 12px 0; min-height: 44px"></label></div>
-    <div style="display: flex; flex-wrap: wrap; gap: 32px"><label style="display: flex; flex-direction: column; gap: 8px; flex: 1 1 240px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-size: 11px; color: #A9A49A">Project type</span><select name="tipo" style="background: transparent; border: 0; border-bottom: 1px solid #5A6A5E; color: #E9DCC6; font-family: 'Inter', sans-serif; font-size: 18px; padding: 12px 0; min-height: 44px"><option style="background: #0C0F0D">Develop a chocolate</option><option style="background: #0C0F0D">Set up or scale production</option><option style="background: #0C0F0D">Assessment</option><option style="background: #0C0F0D">Training</option><option style="background: #0C0F0D">Talk</option><option style="background: #0C0F0D">Other</option></select></label><label style="display: flex; flex-direction: column; gap: 8px; flex: 1 1 240px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-size: 11px; color: #A9A49A">Stage</span><select name="etapa" style="background: transparent; border: 0; border-bottom: 1px solid #5A6A5E; color: #E9DCC6; font-family: 'Inter', sans-serif; font-size: 18px; padding: 12px 0; min-height: 44px"><option style="background: #0C0F0D">Idea</option><option style="background: #0C0F0D">Testing</option><option style="background: #0C0F0D">Already producing</option><option style="background: #0C0F0D">Ready to scale</option></select></label></div>
-    <label style="display: flex; flex-direction: column; gap: 8px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-size: 11px; color: #A9A49A">Tell me in a few lines</span><textarea name="mensaje" rows="4" style="background: transparent; border: 0; border-bottom: 1px solid #5A6A5E; color: #E9DCC6; font-family: 'Inter', sans-serif; font-size: 18px; padding: 12px 0; resize: vertical"></textarea></label>
-    <div style="display: flex; flex-wrap: wrap; gap: 32px"><label style="display: flex; flex-direction: column; gap: 8px; flex: 1 1 240px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-size: 11px; color: #A9A49A">Target volume <span style="color: #8E887E">(optional)</span></span><input type="text" name="volumen" style="background: transparent; border: 0; border-bottom: 1px solid #5A6A5E; color: #E9DCC6; font-family: 'Inter', sans-serif; font-size: 18px; padding: 12px 0; min-height: 44px"></label><label style="display: flex; flex-direction: column; gap: 8px; flex: 1 1 240px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-size: 11px; color: #A9A49A">Calendario <span style="color: #8E887E">(optional)</span></span><input type="text" name="calendario" style="background: transparent; border: 0; border-bottom: 1px solid #5A6A5E; color: #E9DCC6; font-family: 'Inter', sans-serif; font-size: 18px; padding: 12px 0; min-height: 44px"></label></div>
-    <label style="display: flex; gap: 12px; align-items: flex-start; font-size: 14px; line-height: 1.5; color: #C8C3BA"><input type="checkbox" name="privacidad" style="width: 20px; height: 20px; margin: 2px 0 0; accent-color: #CC5A33"><span>I have read and accept the <a href="#">privacy policy</a>.</span></label>
-    <button type="submit" style="align-self: flex-start; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-size: 14px; color: #0C0F0D; background: #E9DCC6; border: 0; padding: 20px 28px; cursor: pointer">Send →</button>
-  </form>
+  <div style="width: 100%; display: flex; flex-direction: column; align-items: center">
+    <div style="height: 1px; background: rgba(233, 220, 198, 0.28); width: 100%"></div>
+    <a href="mailto:olifernandez@me.com" class="rv" style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.02em; color: #E9DCC6; text-decoration: none; padding: 30px 0">olifernandez@me.com</a>
+    <div style="height: 1px; background: rgba(233, 220, 198, 0.28); width: 100%"></div>
+  </div>
+  <a href="mailto:olifernandez@me.com" class="ring" aria-label="Write an email to Olivier" style="width: 116px; height: 116px; border-radius: 58px; border: 1px solid rgba(233, 220, 198, 0.6); display: flex; align-items: center; justify-content: center; text-decoration: none; position: relative">
+    <span style="width: 92px; height: 92px; border-radius: 46px; background: #CC5A33; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.6; letter-spacing: 0.14em; text-transform: uppercase; font-size: 11px; color: #0C0F0D; text-align: center">Write<br>to me</span>
+  </a>
 </section>
-<footer style="background: #0C0F0D; color: #E9DCC6; padding: 80px clamp(20px, 5vw, 72px) 40px; display: flex; flex-direction: column; gap: 56px">
-  <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; align-items: flex-end">
-    <p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: clamp(36px, 5vw, 64px); line-height: 1">Bean to bar.<br>Bar to business.</p>
-    <svg viewBox="0 0 355 200" style="display: block; width: 150px; height: 85px; fill: #E9DCC6;" aria-hidden="true"><circle cx="100" cy="100" r="100"></circle><rect x="200" y="0" width="75" height="200"></rect><circle cx="315" cy="40" r="40"></circle><rect x="277.5" y="80" width="75" height="120"></rect></svg>
+<footer style="background: #0C0F0D; color: #E9DCC6; padding: 48px clamp(20px, 5vw, 72px) 28px; display: flex; flex-direction: column; gap: 28px; border-top: 1px solid #1C221E">
+  <div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; align-items: flex-end">
+    <p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: clamp(24px, 2.4vw, 34px); line-height: 1.05">Bean to bar.<br>Bar to business.</p>
+    <svg viewBox="0 0 355 200" style="display: block; width: 84px; height: 47px; fill: #E9DCC6;" aria-hidden="true"><circle cx="100" cy="100" r="100"></circle><rect x="200" y="0" width="75" height="200"></rect><circle cx="315" cy="40" r="40"></circle><rect x="277.5" y="80" width="75" height="120"></rect></svg>
   </div>
-  <div style="display: flex; flex-wrap: wrap; gap: 32px 64px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #A9A49A; border-top: 1px solid #2A332C; padding-top: 28px">
-    <span data-placeholder="email" style="color: #E9DCC6">[PLACEHOLDER: professional email]</span>
-    <span data-placeholder="redes">[PLACEHOLDER: Instagram · LinkedIn]</span>
+  <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 32px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #A9A49A; border-top: 1px solid #2A332C; padding-top: 18px">
+    <a href="mailto:olifernandez@me.com" style="color: #E9DCC6; text-decoration: none; padding: 6px 0; text-transform: none; letter-spacing: 0.06em">olifernandez@me.com</a>
+    <a href="https://www.instagram.com/olifernandezbcn/" style="color: #A9A49A; text-decoration: none; padding: 6px 0">Instagram</a>
+    <a href="https://www.linkedin.com/in/olifernandezbcn/" style="color: #A9A49A; text-decoration: none; padding: 6px 0">LinkedIn</a>
     <span>Barcelona · ES / EN</span>
     <span style="flex-grow: 1"></span>
-    <a href="#" style="color: #A9A49A">Legal notice</a><a href="#" style="color: #A9A49A">Privacy</a><a href="#" style="color: #A9A49A">Cookies</a>
+    <a href="#" style="color: #A9A49A; text-decoration: none; padding: 6px 0">Legal notice</a>
+    <a href="#" style="color: #A9A49A; text-decoration: none; padding: 6px 0">Privacy</a>
+    <a href="#" style="color: #A9A49A; text-decoration: none; padding: 6px 0">Cookies</a>
+    <span style="color: #8E887E; padding: 6px 0">© 2026 Olivier Fernández</span>
   </div>
 </footer>
 </div>
-
+<script>
+(function(){var b=document.getElementById('menu-btn'),d=document.getElementById('menu-dd');if(!b||!d)return;
+var o=b.querySelector('.m-open'),c=b.querySelector('.m-closed');
+function set(open){d.hidden=!open;o.hidden=!open;c.hidden=open;b.setAttribute('aria-expanded',open?'true':'false');}
+b.addEventListener('click',function(){set(d.hidden);});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!d.hidden){set(false);b.focus();}});})();
+</script>
 </body>
 </html>

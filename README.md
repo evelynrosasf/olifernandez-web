@@ -6,12 +6,10 @@ Static website for Olivier Fernández, bean-to-bar chocolate maker (Barcelona). 
 
 | File | Page |
 |---|---|
-| `index.html` | Home (minimal menu, scroll animations) |
+| `index.html` | Home |
 | `about.html` | About Olivier |
-| `consulting.html` | Consulting |
-| `projects.html` | Projects |
-| `training.html` | Training & talks |
-| `contact.html` | Contact form |
+| `work.html` | Work (consulting, training, talks, demos) |
+| `contact.html` | Contact (email) |
 
 Assets live in `assets/`: self-hosted fonts (`assets/fonts/`, woff2), photos (`assets/img/`) and the Oli favicon.
 
@@ -28,10 +26,7 @@ All links and asset paths are relative, so the site works both under `/olifernan
 
 Search the code for `PLACEHOLDER` and `data-placeholder` to find everything still pending:
 
-- **Professional email and social links** (footer, contact page, menu).
-- **Contact form endpoint.** GitHub Pages can't process forms. In `contact.html`, set the `<form action="#">` to a form service (for example Formspree or Basin) and add an anti-spam measure.
-- **Project roles and permissions** (projects page): role and scope for each project, name and permission for the origin project, a photo of 97-12º.
-- **Talk history** (training page): events where "From Bean to Business" has been given, confirmed by the organiser.
+- **LinkedIn URL:** the footer links to `linkedin.com/in/olifernandezbcn`; confirm it.
 - **Legal pages:** legal notice (LSSI-CE), privacy policy (GDPR) and cookie policy. The footer and form currently link to `#`. Texts should be reviewed by a lawyer or gestor.
 
 ## Notes

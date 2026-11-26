@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About · Olivier Fernández</title>
-<meta name="description" content="Pastry chef by trade, chocolate maker from the bean. One of Spain's bean-to-bar pioneers.">
+<meta name="description" content="Pastry chef and bean-to-bar chocolate maker with over 35 years of experience.">
 <meta property="og:title" content="About · Olivier Fernández">
-<meta property="og:description" content="Pastry chef by trade, chocolate maker from the bean. One of Spain's bean-to-bar pioneers.">
+<meta property="og:description" content="Pastry chef and bean-to-bar chocolate maker with over 35 years of experience.">
 <meta property="og:image" content="assets/img/hands-cacao-beans.jpg">
 <meta name="theme-color" content="#0C0F0D">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -26,62 +26,88 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 body{margin:0;background:#0C0F0D}
 a{color:#E9DCC6}a:hover{opacity:.8}
 img{max-width:100%}
+@keyframes sl{from{transform:translateX(var(--fx,0));opacity:0}to{transform:none;opacity:1}}
+@keyframes up{from{transform:translateY(60px);opacity:0;filter:blur(10px)}to{transform:none;opacity:1;filter:none}}
+@keyframes fd{from{opacity:0}to{opacity:1}}
+@keyframes gh{from{transform:translateX(var(--gx,0))}to{transform:translateX(calc(var(--gx,0) * -1))}}
+@keyframes rv{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:none}}
+.sl{animation:sl 1.3s cubic-bezier(.2,.7,0,1) both}.up{animation:up 1.4s cubic-bezier(.2,.7,0,1) .25s both}.fd{animation:fd 1s ease 1s both}
+.gh{display:block;animation:gh linear both;animation-timeline:view();animation-range:entry 0% exit 100%}
+.rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% entry 80%}
+@media (max-width:760px){.ab-img{left:calc(72vw - 766px)!important}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 </head>
 <body>
 <div style="background: #0C0F0D; color: #E9DCC6; font-family: 'Inter', sans-serif; min-width: 320px">
-<header style="display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; justify-content: space-between; padding: 20px clamp(20px, 5vw, 72px); background: #0C0F0D; color: #E9DCC6; border-bottom: 1px solid #222A24">
-  <a href="index.html" aria-label="Olivier Fernández, home" style="display: flex; align-items: center; gap: 14px; color: #E9DCC6; text-decoration: none"><svg viewBox="0 0 355 200" style="display: block; width: 52px; height: 29px; fill: #E9DCC6;" aria-hidden="true"><circle cx="100" cy="100" r="100"></circle><rect x="200" y="0" width="75" height="200"></rect><circle cx="315" cy="40" r="40"></circle><rect x="277.5" y="80" width="75" height="120"></rect></svg><span style="font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 125; font-weight: 800; font-size: 13px; letter-spacing: 0.14em">OLIVIER FERNÁNDEZ</span></a>
-  <nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 4px 28px; align-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase">
-<a href="consulting.html" style="color: #E9DCC6; text-decoration: none; padding: 12px 0">Consulting</a>
-<a href="projects.html" style="color: #E9DCC6; text-decoration: none; padding: 12px 0">Projects</a>
-<a href="training.html" style="color: #E9DCC6; text-decoration: none; padding: 12px 0">Training</a>
-<a href="about.html" style="color: #E9DCC6; text-decoration: underline; text-underline-offset: 6px; padding: 12px 0">About Olivier</a>
-<a href="contact.html" style="color: #0C0F0D; background: #E9DCC6; text-decoration: none; padding: 15px 18px">Tell me about your project</a>
-  </nav>
+<header style="position: fixed; top: 0; left: 0; right: 0; z-index: 20; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; padding: 18px clamp(20px, 5vw, 72px); background: #0C0F0D; color: #E9DCC6">
+  <a href="index.html" aria-label="Olivier Fernández, home" style="justify-self: start; color: #E9DCC6"><svg viewBox="0 0 355 200" style="display: block; width: 56px; height: 32px; fill: #E9DCC6;" aria-hidden="true"><circle cx="100" cy="100" r="100"></circle><rect x="200" y="0" width="75" height="200"></rect><circle cx="315" cy="40" r="40"></circle><rect x="277.5" y="80" width="75" height="120"></rect></svg></a>
+  <div style="justify-self: center; display: flex; flex-direction: column; align-items: center">
+    <button type="button" id="menu-btn" aria-label="Menu" aria-controls="menu-dd" aria-expanded="false" style="background: none; border: 0; padding: 12px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 6px">
+      <span class="m-open" hidden style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.6; letter-spacing: 0.14em; text-transform: uppercase; color: #E9DCC6">Close ×</span>
+      <span class="m-closed" style="display: flex; flex-direction: column; gap: 6px"><span style="display: block; width: 30px; height: 2px; background: #E9DCC6"></span><span style="display: block; width: 30px; height: 2px; background: #E9DCC6"></span></span>
+    </button>
+    <nav id="menu-dd" hidden aria-label="Menu" style="display: flex; flex-direction: column; align-items: center; margin-top: 4px">
+<a href="index.html" style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.6; letter-spacing: 0.14em; text-transform: uppercase; color: #A9A49A; text-decoration: none; padding: 9px 0; display: block">Home</a>
+<a href="work.html" style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.6; letter-spacing: 0.14em; text-transform: uppercase; color: #A9A49A; text-decoration: none; padding: 9px 0; display: block">Work</a>
+<a href="about.html" aria-current="page" style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.6; letter-spacing: 0.14em; text-transform: uppercase; color: #E9DCC6; text-decoration: none; padding: 9px 0; display: flex; align-items: center; gap: 8px"><span style="width: 6px; height: 6px; border-radius: 3px; background: #E9DCC6"></span>About</a>
+<a href="contact.html" style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.6; letter-spacing: 0.14em; text-transform: uppercase; color: #A9A49A; text-decoration: none; padding: 9px 0; display: block">Contact</a>
+</nav>
+  </div>
+  <a class="cta-top" href="contact.html" style="justify-self: end; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #E9DCC6; text-decoration: underline; text-underline-offset: 6px; padding: 12px 0">Say hello</a>
 </header>
-<section style="display: flex; flex-wrap: wrap; background: #0C0F0D">
-  <div style="flex: 1 1 460px; min-height: 720px; position: relative"><img src="assets/img/olivier-portrait.jpg" alt="Portrait of Olivier Fernández in the workshop holding cacao beans" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 58% center"></div>
-  <div style="flex: 1 1 460px; padding: 96px clamp(20px, 5vw, 72px); display: flex; flex-direction: column; justify-content: center; gap: 28px">
-    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #A9A49A">About Olivier</span>
-    <h1 style="font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 125; font-weight: 800; text-transform: uppercase; line-height: 0.92; letter-spacing: -0.01em; margin: 0; font-size: clamp(52px, 6.4vw, 104px)">Olivier<br>Fernández</h1>
-    <p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: clamp(26px, 2.4vw, 34px); line-height: 1.15; color: #D9CBB4">Pastry chef by trade.<br>Chocolate maker from the bean.</p>
-    <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #C8C3BA; max-width: 500px">I started out in Barcelona's professional pastry kitchens. I trained at the Escola de Pastisseria del Gremi, worked in the city's pastry shops and hotels, and went back to the school to lead it. Along the way I specialised in cacao and helped bring bean-to-bar to Spain.</p>
+<div style="background: #0C0F0D; color: #E9DCC6">
+<section style="position: relative; height: 720px; overflow: hidden; background: #151815">
+  <img class="ab-img" src="assets/img/olivier-workshop.jpg" alt="" style="position: absolute; z-index: 0; top: -62px; left: 184px; height: 1000px; width: auto; max-width: none; opacity: 1; -webkit-mask-image: linear-gradient(to right, transparent, #000 300px); mask-image: linear-gradient(to right, transparent, #000 300px)">
+  <div class="fd" style="position: absolute; z-index: 27; left: clamp(20px, 5vw, 72px); bottom: 64px; display: flex; flex-direction: column; gap: 12px">
+    <h1 style="margin: 0; font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; font-weight: 500; font-size: 16px; letter-spacing: 0.32em; color: #E9DCC6">About Olivier</h1>
+    <span style="font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; font-size: 11px; letter-spacing: 0.18em; color: #E9DCC6; opacity: 0.75">Pastry chef · Bean-to-bar chocolate maker</span>
   </div>
+  <img class="up ab-img" src="assets/img/olivier-cutout.webp" alt="Olivier Fernández holding cacao beans" style="position: absolute; z-index: 25; top: -62px; left: 184px; height: 1000px; width: auto; max-width: none">
 </section>
-<section style="background: #2C3323; padding: 96px clamp(20px, 5vw, 72px); display: flex; flex-direction: column; gap: 56px">
-  <h2 style="font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 125; font-weight: 800; text-transform: uppercase; line-height: 0.92; letter-spacing: -0.01em; margin: 0; font-size: clamp(36px, 5vw, 72px)">Four places, one standard.</h2>
-  <div style="display: flex; flex-wrap: wrap; gap: 32px">
-<div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 14px; padding-top: 22px; border-top: 2px solid #E9DCC6"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #A9A49A">01</span><span style="font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 125; font-weight: 800; text-transform: uppercase; line-height: 0.92; letter-spacing: -0.01em; margin: 0; font-size: clamp(30px, 3vw, 44px)">Origin</span><span style="font-size: 16px; line-height: 1.5; color: #C8C3BA">Where much of cacao's potential is decided.</span></div>
-<div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 14px; padding-top: 22px; border-top: 2px solid #E9DCC6"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #A9A49A">02</span><span style="font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 125; font-weight: 800; text-transform: uppercase; line-height: 0.92; letter-spacing: -0.01em; margin: 0; font-size: clamp(30px, 3vw, 44px)">Workshop</span><span style="font-size: 16px; line-height: 1.5; color: #C8C3BA">Where cacao becomes product.</span></div>
-<div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 14px; padding-top: 22px; border-top: 2px solid #E9DCC6"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #A9A49A">03</span><span style="font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 125; font-weight: 800; text-transform: uppercase; line-height: 0.92; letter-spacing: -0.01em; margin: 0; font-size: clamp(30px, 3vw, 44px)">Classroom</span><span style="font-size: 16px; line-height: 1.5; color: #C8C3BA">Where the craft is passed on.</span></div>
-<div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 14px; padding-top: 22px; border-top: 2px solid #E9DCC6"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #A9A49A">04</span><span style="font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 125; font-weight: 800; text-transform: uppercase; line-height: 0.92; letter-spacing: -0.01em; margin: 0; font-size: clamp(30px, 3vw, 44px)">Operation</span><span style="font-size: 16px; line-height: 1.5; color: #C8C3BA">Where it proves it can be done well, every time.</span></div>
+<section style="padding: 120px 15vw 64px; display: flex; flex-direction: column; gap: 48px">
+  <p class="rv" style="margin: 0; max-width: none; font-size: clamp(22px, 2vw, 30px); line-height: 1.35; font-weight: 500; text-align: justify">I'm Olivier Fernández, a pastry chef and Bean to Bar chocolate maker with over 35 years of experience and a passion for understanding and perfecting every step of the chocolate-making process.</p>
+  <div style="display: flex; flex-wrap: wrap; gap: 32px 48px; align-items: flex-start">
+    <div class="rv" style="flex: 1 1 0; min-width: 240px; display: flex; flex-direction: column; gap: 16px; padding-top: 18px; border-top: 1px solid #E9DCC6"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.6; letter-spacing: 0.14em; text-transform: uppercase; font-size: 11px; color: #E9DCC6">01 · The craft</span><p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 14px; line-height: 1.75; color: #A9A49A; text-align: left">Over the years, I've dedicated myself to mastering the art of turning cocoa beans into exceptional chocolate, always looking for ways to make the process more efficient without compromising the craftsmanship, quality, and character that make Bean to Bar so special.</p></div>
+    <div class="rv" style="flex: 1 1 0; min-width: 240px; display: flex; flex-direction: column; gap: 16px; padding-top: 18px; border-top: 1px solid #E9DCC6"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.6; letter-spacing: 0.14em; text-transform: uppercase; font-size: 11px; color: #E9DCC6">02 · The process</span><p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 14px; line-height: 1.75; color: #A9A49A; text-align: left">Having worked alongside chocolate makers and businesses on projects around the world, I've learned that producing great chocolate isn't just about having the right recipe. It's about understanding the entire process, choosing the right equipment, building a skilled team, and creating a well-structured operation where every step works together.</p></div>
+    <div class="rv" style="flex: 1 1 0; min-width: 240px; display: flex; flex-direction: column; gap: 16px; padding-top: 18px; border-top: 1px solid #E9DCC6"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.6; letter-spacing: 0.14em; text-transform: uppercase; font-size: 11px; color: #E9DCC6">03 · Today</span><p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 14px; line-height: 1.75; color: #A9A49A; text-align: left">Today, I use everything I've learned to help others find a simpler, smarter path to producing outstanding chocolate, whether they're starting from scratch or looking to take their production to the next level.</p></div>
   </div>
+  <p class="rv" style="margin: 0; max-width: none; font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: clamp(30px, 3.2vw, 48px); line-height: 1.12; text-align: justify">Because I believe that exceptional chocolate shouldn't require an unnecessarily complicated process. It requires knowledge, the right decisions, and a genuine respect for the craft.</p>
+  <p class="rv" style="margin: 0; display: flex; flex-wrap: wrap; gap: 8px 28px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; line-height: 1.6; letter-spacing: 0.14em; text-transform: uppercase; color: #A9A49A"><span>Speaker and trainer</span><span>EPGB Barcelona</span><span>Madrid Fusión</span><span>Alimentaria</span></p>
 </section>
-<section style="background: #0C0F0D; padding: 72px clamp(20px, 5vw, 72px); display: flex; flex-wrap: wrap; gap: 20px 56px; align-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-size: 13px; color: #A9A49A">
-  <span style="color: #E9DCC6">Speaker and trainer</span><span>Escola de Pastisseria del Gremi de Barcelona</span><span>Madrid Fusión</span><span>Alimentaria</span>
-</section>
-<section style="background: #CC5A33; color: #0C0F0D; padding: 96px clamp(20px, 5vw, 72px); display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-end; justify-content: space-between">
-  <div style="display: flex; flex-direction: column; gap: 20px; max-width: 900px">
-    <h2 style="font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 125; font-weight: 800; text-transform: uppercase; line-height: 0.92; letter-spacing: -0.01em; margin: 0; font-size: clamp(40px, 6vw, 88px)">Let's talk about your cacao.</h2>
-    <p style="margin: 0; font-size: 18px; line-height: 1.5; max-width: 520px">Tell me where your project stands. I'll reply personally.</p>
+<section style="padding: 0 0 56px; display: flex; flex-direction: column; gap: 0; overflow: hidden">
+  <div aria-hidden="true" style="display: flex; flex-direction: column">
+    <span class="gh" style="--gx: -10vw; font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 125; font-weight: 800; text-transform: uppercase; line-height: 0.9; letter-spacing: -0.01em; white-space: nowrap; font-size: clamp(56px, 9vw, 140px); color: #19201B; padding-left: 1vw">origin · roast</span>
+    <span class="gh" style="--gx: 10vw; font-family: 'Archivo', sans-serif; font-variation-settings: 'wdth' 125; font-weight: 800; text-transform: uppercase; line-height: 0.9; letter-spacing: -0.01em; white-space: nowrap; font-size: clamp(56px, 9vw, 140px); color: #19201B; padding-left: 13vw">craft · scale</span>
   </div>
-  <a href="contact.html" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-size: 14px; color: #E9DCC6; background: #0C0F0D; text-decoration: none; padding: 20px 26px">Tell me about your project →</a>
+  
 </section>
-<footer style="background: #0C0F0D; color: #E9DCC6; padding: 80px clamp(20px, 5vw, 72px) 40px; display: flex; flex-direction: column; gap: 56px">
-  <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; align-items: flex-end">
-    <p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: clamp(36px, 5vw, 64px); line-height: 1">Bean to bar.<br>Bar to business.</p>
-    <svg viewBox="0 0 355 200" style="display: block; width: 150px; height: 85px; fill: #E9DCC6;" aria-hidden="true"><circle cx="100" cy="100" r="100"></circle><rect x="200" y="0" width="75" height="200"></rect><circle cx="315" cy="40" r="40"></circle><rect x="277.5" y="80" width="75" height="120"></rect></svg>
+</div>
+
+<footer style="background: #0C0F0D; color: #E9DCC6; padding: 48px clamp(20px, 5vw, 72px) 28px; display: flex; flex-direction: column; gap: 28px; border-top: 1px solid #1C221E">
+  <div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; align-items: flex-end">
+    <p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: clamp(24px, 2.4vw, 34px); line-height: 1.05">Bean to bar.<br>Bar to business.</p>
+    <svg viewBox="0 0 355 200" style="display: block; width: 84px; height: 47px; fill: #E9DCC6;" aria-hidden="true"><circle cx="100" cy="100" r="100"></circle><rect x="200" y="0" width="75" height="200"></rect><circle cx="315" cy="40" r="40"></circle><rect x="277.5" y="80" width="75" height="120"></rect></svg>
   </div>
-  <div style="display: flex; flex-wrap: wrap; gap: 32px 64px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #A9A49A; border-top: 1px solid #2A332C; padding-top: 28px">
-    <span data-placeholder="email" style="color: #E9DCC6">[PLACEHOLDER: professional email]</span>
-    <span data-placeholder="redes">[PLACEHOLDER: Instagram · LinkedIn]</span>
+  <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 32px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #A9A49A; border-top: 1px solid #2A332C; padding-top: 18px">
+    <a href="mailto:olifernandez@me.com" style="color: #E9DCC6; text-decoration: none; padding: 6px 0; text-transform: none; letter-spacing: 0.06em">olifernandez@me.com</a>
+    <a href="https://www.instagram.com/olifernandezbcn/" style="color: #A9A49A; text-decoration: none; padding: 6px 0">Instagram</a>
+    <a href="https://www.linkedin.com/in/olifernandezbcn/" style="color: #A9A49A; text-decoration: none; padding: 6px 0">LinkedIn</a>
     <span>Barcelona · ES / EN</span>
     <span style="flex-grow: 1"></span>
-    <a href="#" style="color: #A9A49A">Legal notice</a><a href="#" style="color: #A9A49A">Privacy</a><a href="#" style="color: #A9A49A">Cookies</a>
+    <a href="#" style="color: #A9A49A; text-decoration: none; padding: 6px 0">Legal notice</a>
+    <a href="#" style="color: #A9A49A; text-decoration: none; padding: 6px 0">Privacy</a>
+    <a href="#" style="color: #A9A49A; text-decoration: none; padding: 6px 0">Cookies</a>
+    <span style="color: #8E887E; padding: 6px 0">© 2026 Olivier Fernández</span>
   </div>
 </footer>
 </div>
-
+<script>
+(function(){var b=document.getElementById('menu-btn'),d=document.getElementById('menu-dd');if(!b||!d)return;
+var o=b.querySelector('.m-open'),c=b.querySelector('.m-closed');
+function set(open){d.hidden=!open;o.hidden=!open;c.hidden=open;b.setAttribute('aria-expanded',open?'true':'false');}
+b.addEventListener('click',function(){set(d.hidden);});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!d.hidden){set(false);b.focus();}});})();
+</script>
 </body>
 </html>
